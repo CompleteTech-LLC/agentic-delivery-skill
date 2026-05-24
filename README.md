@@ -73,6 +73,8 @@ Rendered artifacts are drafts. Replace placeholders with verified client, scope,
 
 ![Launch readiness packet preview](assets/examples/example.png)
 
+Preview converted from generated artifact: [example.md](assets/examples/example.md).
+
 **Launch readiness packet: Reviewed support triage workflow**
 
 ```bash
@@ -82,7 +84,8 @@ python3 scripts/render_delivery.py \
   --var workflow="support triage agent" \
   --var launch_window="pilot group on June 10" \
   --var approval_gate="support lead approval before customer-facing replies" \
-  --var rollback_owner="CompleteTech delivery lead"
+  --var rollback_owner="CompleteTech delivery lead" \
+  > assets/examples/example.md
 ```
 
 Example packet:
