@@ -10,6 +10,18 @@ A CompleteTech LLC Codex skill for creating delivery execution artifacts after a
 
 Part of the CompleteTech LLC agentic services skill library. This skill supports approved-scope execution from kickoff through evaluation, launch, support, handoff, and closeout.
 
+## OpenClaw / ClawHub Metadata
+
+- Skill key: `agentic-delivery-skill`
+- Version-ready metadata: `1.0.0`
+- Homepage: https://github.com/CompleteTech-LLC/agentic-delivery-skill
+- README: https://github.com/CompleteTech-LLC/agentic-delivery-skill#readme
+- Runtime binaries: `python3`
+- Python packages: none
+- Intended registry/discovery tags: `latest`, `complete-tech`, `codex-skill`, `agentic-development`, `agentic-workflows`, `delivery`, `project-management`, `handoff`
+- License: repository code, templates, and documentation use MIT; ClawHub publishing is intentionally skipped for now.
+- Brand assets: CompleteTech LLC names, logos, seals, and brand assets are reserved; see `BRAND_ASSETS.md`.
+
 ## Workflow Diagram
 
 ```mermaid
