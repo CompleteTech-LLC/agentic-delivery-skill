@@ -17,8 +17,8 @@ Part of the CompleteTech LLC agentic services skill library. This skill supports
 - Homepage: https://github.com/CompleteTech-LLC/agentic-delivery-skill
 - README: https://github.com/CompleteTech-LLC/agentic-delivery-skill#readme
 - Runtime binaries: `python3`
-- Python packages: none
-- Intended registry/discovery tags: `latest`, `complete-tech`, `codex-skill`, `agentic-development`, `agentic-workflows`, `delivery`, `project-management`, `handoff`
+- Python packages: `reportlab>=4.0` (optional PNG preview: `pypdfium2`, `pillow`)
+- Intended registry/discovery tags: `latest`, `complete-tech`, `codex-skill`, `agentic-development`, `agentic-workflows`, `delivery`, `project-management`, `handoff`, `pdf`, `pdf-generator`
 - License: repository code, templates, and documentation use MIT; ClawHub publishing is intentionally skipped for now.
 - Brand assets: CompleteTech LLC names, logos, seals, and brand assets are reserved; see `BRAND_ASSETS.md`.
 
@@ -56,6 +56,8 @@ flowchart LR
 - `references/delivery-lifecycle.md` - flow from kickoff through support and closeout.
 - `references/delivery-positioning.md` - CompleteTech LLC delivery language and guardrails.
 - `scripts/render_delivery.py` - deterministic template listing and rendering helper.
+- `scripts/render_pdf.py` - branded CompleteTech PDF generator (Markdown -> PDF + optional PNG preview).
+- `requirements.txt` - Python dependencies for branded PDF rendering.
 
 ## Quick Start
 
@@ -71,28 +73,29 @@ Rendered artifacts are drafts. Replace placeholders with verified client, scope,
 
 ## Example
 
-![Launch readiness packet preview](assets/examples/example.png)
+![Launch Readiness Checklist preview](assets/examples/example.png)
 
-Full-document preview converted from generated artifact: [example.md](assets/examples/example.md).
+Full-document **branded PDF** rendered from the generated artifact: [example.pdf](assets/examples/example.pdf). Markdown source: [example.md](assets/examples/example.md).
 
-**Launch readiness packet: Reviewed support triage workflow**
+**Delivery artifact: Northwind Trading Co. — launch readiness for the pilot**
+
+- Evaluation evidence: 93.4% routing accuracy, 4.3/5 reply quality, 0/42 prompt-injection actions.
+- Operational readiness: logging, misclassification register, and rollback documented.
+- Open items and approval gates tracked before the acceptance demonstration.
+- Launch blocked until security signoff and sponsor go/no-go are recorded.
+
+Generate the branded PDF (artifacts are delivered as PDFs, not raw Markdown):
 
 ```bash
-python3 scripts/render_delivery.py \
-  --template launch-readiness-checklist \
-  --var client_name="Northstar Support" \
-  --var workflow="support triage agent" \
-  --var launch_window="pilot group on June 10" \
-  --var approval_gate="support lead approval before customer-facing replies" \
-  --var rollback_owner="CompleteTech delivery lead" \
-  > assets/examples/example.md
+pip install -r requirements.txt
+# 1) Draft the artifact (optionally start from a catalog template)
+python3 scripts/render_delivery.py --template launch-readiness-checklist > assets/examples/example.md
+# 2) Render the branded CompleteTech PDF (+ optional PNG preview)
+python3 scripts/render_pdf.py --markdown assets/examples/example.md \
+  --out assets/examples/example.pdf --png assets/examples/example.png \
+  --logo assets/logo.png --title "Launch Readiness Checklist" \
+  --doc-type "DELIVERY ARTIFACT" --subtitle "Northwind Trading Co. — Support Email Triage Agent (Pilot)" --meta "DOCUMENT NO.=DEL-2026-0233" --meta "DATE=2026-06-12" --meta "PHASE=Pre-acceptance"
 ```
-
-Example packet:
-
-- Confirms approved scope, reviewer roles, access status, evaluation examples, monitoring path, and rollback owner.
-- Separates launch blockers from follow-up items.
-- Hands security-sensitive items to `agentic-security-review-skill` before production use.
 
 ## Brand Notes
 
