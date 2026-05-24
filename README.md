@@ -73,7 +73,7 @@ Rendered artifacts are drafts. Replace placeholders with verified client, scope,
 
 ![Launch readiness packet preview](assets/examples/example.png)
 
-Preview converted from generated artifact: [example.md](assets/examples/example.md).
+Full-document preview converted from generated artifact: [example.md](assets/examples/example.md).
 
 **Launch readiness packet: Reviewed support triage workflow**
 
