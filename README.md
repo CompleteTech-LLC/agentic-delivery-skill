@@ -69,6 +69,28 @@ python3 scripts/render_delivery.py \
 
 Rendered artifacts are drafts. Replace placeholders with verified client, scope, schedule, approval, risk, test, support, and handoff details before use.
 
+## Example
+
+![Launch readiness packet preview](assets/examples/example.png)
+
+**Launch readiness packet: Reviewed support triage workflow**
+
+```bash
+python3 scripts/render_delivery.py \
+  --template launch-readiness-checklist \
+  --var client_name="Northstar Support" \
+  --var workflow="support triage agent" \
+  --var launch_window="pilot group on June 10" \
+  --var approval_gate="support lead approval before customer-facing replies" \
+  --var rollback_owner="CompleteTech delivery lead"
+```
+
+Example packet:
+
+- Confirms approved scope, reviewer roles, access status, evaluation examples, monitoring path, and rollback owner.
+- Separates launch blockers from follow-up items.
+- Hands security-sensitive items to `agentic-security-review-skill` before production use.
+
 ## Brand Notes
 
 Use a direct, concrete, low-hype tone. Present delivery as practical bounded implementation: execute the approved scope, protect human approval gates, track decisions and risks, verify evaluation examples, document logs and monitoring, prepare reviewers/admins, manage change requests, confirm acceptance, and hand off cleanly. Do not invent client facts, approvals, test results, metrics, regulated-use assurances, legal claims, or production readiness.
