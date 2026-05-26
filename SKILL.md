@@ -2,7 +2,7 @@
 name: agentic-delivery-skill
 description: >-
   Create CompleteTech LLC delivery execution artifacts for approved agentic development engagements, including kickoff agendas, access checklists, project plans, milestone trackers, status updates, decision logs, risk/issue logs, change request intake, prototype review, evaluation reports, acceptance packets, launch readiness, monitoring, support, handoff, runbooks, quickstarts, closeout, post-launch review, and escalation procedures. Use after proposal/SOW or contract approval when Codex needs to run bounded agentic workflow delivery cleanly.
-version: 1.0.3
+version: 1.0.4
 metadata:
   openclaw:
     skillKey: agentic-delivery-skill
@@ -112,7 +112,7 @@ Rendered artifacts are drafts. Replace placeholders with verified project facts 
 
 ## Rendering to a Branded PDF
 
-Artifacts from this skill are delivered as branded CompleteTech LLC **PDF** documents, not raw Markdown. The renderer emits the PDF (and prints the Markdown) in **one command**, using the same reportlab branding engine as the contract skill:
+Artifacts from this skill are delivered as branded CompleteTech LLC **PDF** documents. The renderer can emit PDF, Markdown, and optional PNG preview in one local command:
 
 ```bash
 pip install -r requirements.txt
@@ -123,10 +123,26 @@ python3 scripts/render_delivery.py --template launch-readiness-checklist \
   --var client_name="Client Name" --var workflow="support triage"
 ```
 
-- `--no-pdf` emits Markdown only (the original behavior); `--no-cover` drops the cover page.
-- Already drafted the Markdown yourself? Render it directly: `python3 scripts/render_pdf.py --markdown artifact.md --out artifact.pdf --logo assets/logo.png --title "..."`.
-- The PDF supports a Markdown subset: `#`/`##`/`###` headings, paragraphs, `-` bullets, tables, `>` callouts, `**bold**`, and `[PAGE_BREAK]`. PDF requires `reportlab`; the optional `--png` preview requires `pypdfium2` and `pillow`. See `assets/examples/` for a rendered example.
+| Output Need | Use |
+|---|---|
+| Branded PDF | `--out artifact.pdf` |
+| PNG preview | `--png artifact.png` |
+| Markdown source | `--markdown-out artifact.md` |
+| Markdown only | `--no-pdf` |
+| No cover page | `--no-cover` |
+| Existing delivery Markdown to PDF | `python3 scripts/render_pdf.py --markdown artifact.md --out artifact.pdf --logo assets/logo.png --title "Launch Readiness Checklist" --doc-type "DELIVERY ARTIFACT"` |
+
+| Rendering Support | Details |
+|---|---|
+| Markdown subset | `#`, `##`, `###`, paragraphs, `-` bullets, tables, `>` callouts, `**bold**`, and `[PAGE_BREAK]`. |
+| Required package | `reportlab==4.5.1` for PDF rendering. |
+| Optional preview packages | `pypdfium2==5.8.0` and `pillow==12.2.0` for `--png`. |
+| Example output | See `assets/examples/` for rendered Markdown, PDF, and PNG artifacts. |
 
 ## Network Boundary
 
-This skill is local-only. It does not include outbound network helpers, callbacks, or any helper that posts delivery run metadata to an external service.
+| Boundary | Requirement |
+|---|---|
+| Local-only runtime | No outbound network helpers, callbacks, telemetry, receipt helpers, or delivery-run metadata posting. |
+| External actions | Does not deploy, launch, send, publish, or call project-management systems. |
+| Approval-sensitive work | Launch, production, customer send, and acceptance actions require verified approval outside this renderer. |

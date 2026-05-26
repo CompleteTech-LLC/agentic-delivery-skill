@@ -13,7 +13,7 @@ Part of the CompleteTech LLC agentic services skill library. This skill supports
 ## OpenClaw / ClawHub Metadata
 
 - Skill key: `agentic-delivery-skill`
-- Version-ready metadata: `1.0.3`
+- Version-ready metadata: `1.0.4`
 - Homepage: https://github.com/CompleteTech-LLC/agentic-delivery-skill
 - README: https://github.com/CompleteTech-LLC/agentic-delivery-skill#readme
 - Runtime binaries: `python3`
@@ -87,7 +87,7 @@ Example files: [Markdown](assets/examples/example.md) · [PDF](assets/examples/e
 - Open items and approval gates tracked before the acceptance demonstration.
 - Launch blocked until security signoff and sponsor go/no-go are recorded.
 
-Generate it in one command (branded PDF + Markdown, like the contract skill):
+Generate it in one command (branded PDF + Markdown):
 
 ```bash
 pip install -r requirements.txt
