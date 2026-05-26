@@ -2,7 +2,7 @@
 name: agentic-delivery-skill
 description: >-
   Create CompleteTech LLC delivery execution artifacts for approved agentic development engagements, including kickoff agendas, access checklists, project plans, milestone trackers, status updates, decision logs, risk/issue logs, change request intake, prototype review, evaluation reports, acceptance packets, launch readiness, monitoring, support, handoff, runbooks, quickstarts, closeout, post-launch review, and escalation procedures. Use after proposal/SOW or contract approval when Codex needs to run bounded agentic workflow delivery cleanly.
-version: 1.0.4
+version: 1.0.5
 metadata:
   openclaw:
     skillKey: agentic-delivery-skill
@@ -25,20 +25,41 @@ metadata:
 
 ## Purpose
 
-Create delivery execution artifacts for CompleteTech LLC agentic development engagements after a proposal/SOW or contract is approved.
+| Use | Scope |
+|---|---|
+| Delivery artifact generation | Create execution artifacts for approved CompleteTech LLC agentic development engagements. |
+| Starting point | Use after proposal/SOW or contract approval is current. |
+| Operating boundary | Keep outputs inside approved scope; route new or unapproved work to proposal/change control. |
 
 ## System Boundary
 
-This skill owns execution after commercial approval: kickoff, project control, evaluation, launch preparation, handoff, and support artifacts. Use `agentic-proposal-skill` for unapproved commercial scope, `agentic-contract-skill` for legal agreement artifacts, `agentic-security-review-skill` for security or production-readiness review, `agentic-invoice-skill` for billing, `agentic-customer-success-skill` for relationship health and renewal, and `agentic-case-study-skill` only after outcomes are verified and approved for proof.
+| Boundary | Use |
+|---|---|
+| This skill | Kickoff, project control, evaluation, launch preparation, handoff, support, and closeout artifacts after approval. |
+| `agentic-proposal-skill` | Unapproved commercial scope, change requests, or new workflow expansion. |
+| `agentic-contract-skill` | Legal agreement artifacts and signature-authority questions. |
+| `agentic-security-review-skill` | Security-sensitive work, production readiness, credentials, permissions, data handling, or launch risk. |
+| `agentic-invoice-skill` | Billing, payment requests, credits, receipts, and invoice events. |
+| `agentic-customer-success-skill` | Relationship health, renewal, expansion planning, and account state. |
+| `agentic-case-study-skill` | Proof only after outcomes are verified and approved. |
 
 ## Core Workflow
 
-1. Identify the delivery need: kickoff, access, planning, status, decisions, risk/issue, change request, prototype review, evaluation, acceptance, launch, monitoring, support, handoff, closeout, or escalation.
-2. Gather verified facts: approved scope, workflow, owners, timeline, milestones, systems, approval gates, evaluation examples, risks, dependencies, support expectations, and acceptance criteria.
-3. Use `references/use-case-decision-table.md` to choose the right delivery artifact.
-4. Use `references/delivery-positioning.md` for CompleteTech LLC delivery framing and guardrails.
-5. Use `references/delivery-catalog.md` for the near-exhaustive delivery artifact library.
-6. Keep delivery practical and bounded. Do not fabricate client facts, approvals, test results, metrics, regulated-use assurances, legal claims, or production readiness.
+| Step | Action |
+|---|---|
+| 1 | Identify the delivery need: kickoff, access, planning, status, decisions, risk/issue, change request, prototype review, evaluation, acceptance, launch, monitoring, support, handoff, closeout, or escalation. |
+| 2 | Gather verified delivery facts. |
+| 3 | Use `references/use-case-decision-table.md` to choose the right delivery artifact. |
+| 4 | Use `references/delivery-positioning.md` for CompleteTech LLC delivery framing and guardrails. |
+| 5 | Use `references/delivery-catalog.md` for the near-exhaustive delivery artifact library. |
+| 6 | Keep delivery practical and bounded; do not fabricate approvals, test results, metrics, legal claims, or production readiness. |
+
+| Required Fact | Examples |
+|---|---|
+| Approved work | Approved scope, workflow, milestone, change request, or acceptance criteria. |
+| Ownership | Client owner, delivery owner, reviewers, approvers, and escalation contacts. |
+| Execution context | Timeline, systems, dependencies, risks, support expectations, and handoff needs. |
+| Evidence | Evaluation examples, test results, logs, approvals, acceptance notes, and launch gates. |
 
 ## Artifact Selection Guide
 
