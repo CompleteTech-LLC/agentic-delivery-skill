@@ -2,7 +2,7 @@
 name: agentic-delivery-skill
 description: >-
   Create CompleteTech LLC delivery execution artifacts for approved agentic development engagements, including kickoff agendas, access checklists, project plans, milestone trackers, status updates, decision logs, risk/issue logs, change request intake, prototype review, evaluation reports, acceptance packets, launch readiness, monitoring, support, handoff, runbooks, quickstarts, closeout, post-launch review, and escalation procedures. Use after proposal/SOW or contract approval when Codex needs to run bounded agentic workflow delivery cleanly.
-version: 1.0.6
+version: 1.0.7
 metadata:
   openclaw:
     skillKey: agentic-delivery-skill
@@ -83,21 +83,25 @@ Choose by the current operational event first.
 
 ## Quality Rules
 
-- Execute the approved scope; route new scope into change request intake.
-- Protect human approval gates for external communications, production changes, purchases, data export, and material business decisions.
-- Track decisions, risks, issues, dependencies, and acceptance evidence explicitly.
-- Verify evaluation examples before acceptance.
-- Document logs, monitoring, runbooks, quickstarts, support, and handoff.
-- Use `TBD` or open questions for unknowns.
+| Rule | Requirement |
+|---|---|
+| Approved scope | Execute only the approved scope; route new scope into change request intake. |
+| Approval gates | Protect human approval gates for external communications, production changes, purchases, data export, and material business decisions. |
+| Project controls | Track decisions, risks, issues, dependencies, and acceptance evidence explicitly. |
+| Evaluation | Verify evaluation examples before acceptance. |
+| Operations | Document logs, monitoring, runbooks, quickstarts, support, and handoff. |
+| Unknowns | Use `TBD` or open questions for unknowns. |
 
 ## Resource Guide
 
-- `references/delivery-positioning.md`: load for CompleteTech LLC delivery language and boundaries.
-- `references/use-case-decision-table.md`: load when choosing a delivery artifact.
-- `references/delivery-lifecycle.md`: load for flow from kickoff through support and closeout.
-- `references/delivery-catalog.md`: load for the near-exhaustive delivery template library.
-- `references/template-index.json`: machine-readable template metadata used by the renderer.
-- `scripts/render_delivery.py`: list delivery artifacts or render a draft with placeholders.
+| Resource | Role |
+|---|---|
+| `references/delivery-positioning.md` | CompleteTech LLC delivery language and boundaries. |
+| `references/use-case-decision-table.md` | Delivery artifact selection for the current operational event. |
+| `references/delivery-lifecycle.md` | Flow from kickoff through support and closeout. |
+| `references/delivery-catalog.md` | Near-exhaustive delivery template library. |
+| `references/template-index.json` | Machine-readable template metadata used by the renderer. |
+| `scripts/render_delivery.py` | Lists delivery artifacts or renders a draft with placeholders. |
 
 ## Runtime Permissions
 
