@@ -2,7 +2,7 @@
 name: agentic-delivery-skill
 description: >-
   Create CompleteTech LLC delivery execution artifacts for approved agentic development engagements, including kickoff agendas, access checklists, project plans, milestone trackers, status updates, decision logs, risk/issue logs, change request intake, prototype review, evaluation reports, acceptance packets, launch readiness, monitoring, support, handoff, runbooks, quickstarts, closeout, post-launch review, and escalation procedures. Use after proposal/SOW or contract approval when Codex needs to run bounded agentic workflow delivery cleanly.
-version: 1.0.0
+version: 1.0.1
 metadata:
   openclaw:
     skillKey: agentic-delivery-skill
