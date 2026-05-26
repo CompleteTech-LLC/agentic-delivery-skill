@@ -2,7 +2,7 @@
 name: agentic-delivery-skill
 description: >-
   Create CompleteTech LLC delivery execution artifacts for approved agentic development engagements, including kickoff agendas, access checklists, project plans, milestone trackers, status updates, decision logs, risk/issue logs, change request intake, prototype review, evaluation reports, acceptance packets, launch readiness, monitoring, support, handoff, runbooks, quickstarts, closeout, post-launch review, and escalation procedures. Use after proposal/SOW or contract approval when Codex needs to run bounded agentic workflow delivery cleanly.
-version: 1.0.5
+version: 1.0.6
 metadata:
   openclaw:
     skillKey: agentic-delivery-skill
@@ -63,36 +63,23 @@ metadata:
 
 ## Artifact Selection Guide
 
-- First meeting after signature: use `kickoff-agenda`.
-- Need client systems/docs/API access: use `client-access-checklist`.
-- Need execution structure: use `project-plan`.
-- Tracking milestone progress: use `milestone-tracker`.
-- Regular client update: use `weekly-status-update`.
-- Capturing decisions: use `decision-log`.
-- Capturing risks or active issues: use `risk-and-issue-log`.
-- Scope change request: use `change-request-intake`.
-- Blocking prerequisites: use `dependency-tracker`.
-- Communication cadence: use `stakeholder-communication-plan`.
-- Prototype review: use `prototype-review-checklist`.
-- Evaluation run: use `evaluation-run-report`.
-- Test summary: use `test-results-summary`.
-- Formal acceptance: use `acceptance-review-packet`.
-- Launch preparation: use `launch-readiness-checklist`.
-- Observability requirements: use `monitoring-plan`.
-- Post-handoff help: use `support-plan`.
-- Handoff preparation: use `handoff-checklist`.
-- Admin/operator documentation: use `administrator-runbook`.
-- Reviewer or user training: use `user-reviewer-quickstart`.
-- After launch: use `post-launch-review`.
-- Retrospective: use `lessons-learned`.
-- Project close: use `closeout-summary`.
-- Incoming support request: use `support-ticket-intake`.
-- Escalation path: use `escalation-procedure`.
-- Deployment-specific rollout: use `deployment-runbook`.
-- Acceptance defects: use `defect-remediation-plan`.
-- Client training session: use `training-session-plan`.
+Choose by the current operational event first.
 
-When several artifacts fit, choose the one closest to the operational event. Do not mark launch-ready, accepted, or complete unless the verified evidence supports it.
+| Event Group | Use These Artifacts |
+|---|---|
+| Kickoff and access | `kickoff-agenda`, `client-access-checklist`, `project-plan`, `stakeholder-communication-plan` |
+| Project control | `milestone-tracker`, `weekly-status-update`, `decision-log`, `risk-and-issue-log`, `dependency-tracker` |
+| Change and remediation | `change-request-intake`, `defect-remediation-plan`, `escalation-procedure` |
+| Prototype and evaluation | `prototype-review-checklist`, `evaluation-run-report`, `test-results-summary` |
+| Acceptance and launch | `acceptance-review-packet`, `launch-readiness-checklist`, `deployment-runbook`, `monitoring-plan` |
+| Handoff and support | `support-plan`, `handoff-checklist`, `administrator-runbook`, `user-reviewer-quickstart`, `support-ticket-intake` |
+| Closeout and learning | `post-launch-review`, `lessons-learned`, `closeout-summary`, `training-session-plan` |
+
+| Selection Rule | Guidance |
+|---|---|
+| Several artifacts fit | Choose the one closest to the operational event. |
+| Launch, acceptance, or complete status | Do not mark ready, accepted, launched, or complete unless verified evidence supports it. |
+| New or changed scope | Use `change-request-intake` and route commercial approval before delivery expands. |
 
 ## Quality Rules
 
