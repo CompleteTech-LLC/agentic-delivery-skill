@@ -13,13 +13,13 @@ Part of the CompleteTech LLC agentic services skill library. This skill supports
 ## OpenClaw / ClawHub Metadata
 
 - Skill key: `agentic-delivery-skill`
-- Version-ready metadata: `1.0.0`
+- Version-ready metadata: `1.0.3`
 - Homepage: https://github.com/CompleteTech-LLC/agentic-delivery-skill
 - README: https://github.com/CompleteTech-LLC/agentic-delivery-skill#readme
 - Runtime binaries: `python3`
-- Python packages: `reportlab>=4.0` (optional PNG preview: `pypdfium2`, `pillow`)
+- Python packages: `reportlab==4.5.1`, `pyyaml==6.0.3` (optional PNG preview: `pypdfium2==5.8.0`, `pillow==12.2.0`)
 - Intended registry/discovery tags: `latest`, `complete-tech`, `codex-skill`, `agentic-development`, `agentic-workflows`, `delivery`, `project-management`, `handoff`, `pdf`, `pdf-generator`
-- License: repository code, templates, and documentation use MIT; ClawHub publishing is intentionally skipped for now.
+- License: repository code, templates, and documentation use MIT; published by CompleteTech on ClawHub.
 - Brand assets: CompleteTech LLC names, logos, seals, and brand assets are reserved; see `BRAND_ASSETS.md`.
 
 ## Workflow Diagram
@@ -103,6 +103,10 @@ The committed `example.{md,pdf,png}` use curated, realistic demonstration data f
 ## Brand Notes
 
 Use a direct, concrete, low-hype tone. Present delivery as practical bounded implementation: execute the approved scope, protect human approval gates, track decisions and risks, verify evaluation examples, document logs and monitoring, prepare reviewers/admins, manage change requests, confirm acceptance, and hand off cleanly. Do not invent client facts, approvals, test results, metrics, regulated-use assurances, legal claims, or production readiness.
+
+## Runtime Permissions
+
+This skill needs local filesystem access only for the documented renderer workflow. It reads bundled templates, references, examples, `assets/logo.png`, and user-provided Markdown or variables, then writes only to the selected `--out`, `--png`, `--markdown-out`, or default `output/` artifact paths. It runs local Python renderer entry points and does not require network access, credential access, persistence, privilege escalation, or destructive file operations.
 
 ## License
 

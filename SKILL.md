@@ -2,7 +2,7 @@
 name: agentic-delivery-skill
 description: >-
   Create CompleteTech LLC delivery execution artifacts for approved agentic development engagements, including kickoff agendas, access checklists, project plans, milestone trackers, status updates, decision logs, risk/issue logs, change request intake, prototype review, evaluation reports, acceptance packets, launch readiness, monitoring, support, handoff, runbooks, quickstarts, closeout, post-launch review, and escalation procedures. Use after proposal/SOW or contract approval when Codex needs to run bounded agentic workflow delivery cleanly.
-version: 1.0.2
+version: 1.0.3
 metadata:
   openclaw:
     skillKey: agentic-delivery-skill
@@ -12,9 +12,13 @@ metadata:
         - python3
     install:
       - kind: uv
-        package: reportlab>=4.0
+        package: reportlab==4.5.1
       - kind: uv
-        package: pyyaml>=6.0
+        package: pypdfium2==5.8.0
+      - kind: uv
+        package: pillow==12.2.0
+      - kind: uv
+        package: pyyaml==6.0.3
 ---
 
 # Agentic Delivery Skill
@@ -86,6 +90,15 @@ When several artifacts fit, choose the one closest to the operational event. Do 
 - `references/delivery-catalog.md`: load for the near-exhaustive delivery template library.
 - `references/template-index.json`: machine-readable template metadata used by the renderer.
 - `scripts/render_delivery.py`: list delivery artifacts or render a draft with placeholders.
+
+## Runtime Permissions
+
+This skill needs local filesystem access only for its documented renderer workflow:
+
+- Reads bundled templates, references, examples, `assets/logo.png`, and user-provided Markdown or variable inputs.
+- Writes only to the user-selected `--out`, `--png`, `--markdown-out`, or default `output/` artifact paths.
+- Runs local Python entry points `scripts/render_delivery.py` and `scripts/render_pdf.py`.
+- Does not require network access, credential access, persistence, privilege escalation, or destructive file operations.
 
 ## Renderer
 
