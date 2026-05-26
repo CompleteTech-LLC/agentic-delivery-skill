@@ -1,0 +1,14 @@
+flowchart LR
+  A[Approved scope] --> B[Kickoff and access]
+  B --> C[Project controls]
+  C --> D[Prototype and evaluation]
+  D --> E{Acceptance ready?}
+  E -->|No| F[Remediation and change control]
+  F --> C
+  E -->|Yes| G[Launch, support, and handoff]
+  classDef source fill:#eef6ff,stroke:#3778c2,color:#102a43;
+  classDef gate fill:#fff7e6,stroke:#c97a12,color:#3d2600;
+  classDef output fill:#eefaf0,stroke:#2f8f46,color:#12351d;
+  class A,B,C,D source;
+  class E gate;
+  class F,G output;
