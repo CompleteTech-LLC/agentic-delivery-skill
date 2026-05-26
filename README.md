@@ -13,7 +13,7 @@ Part of the CompleteTech LLC agentic services skill library. This skill supports
 ## OpenClaw / ClawHub Metadata
 
 - Skill key: `agentic-delivery-skill`
-- Version-ready metadata: `1.0.7`
+- Version-ready metadata: `1.0.8`
 - Homepage: https://github.com/CompleteTech-LLC/agentic-delivery-skill
 - README: https://github.com/CompleteTech-LLC/agentic-delivery-skill#readme
 - Runtime binaries: `python3`
@@ -106,7 +106,12 @@ Use a direct, concrete, low-hype tone. Present delivery as practical bounded imp
 
 ## Runtime Permissions
 
-This skill needs local filesystem access only for the documented renderer workflow. It reads bundled templates, references, examples, `assets/logo.png`, and user-provided Markdown or variables, then writes only to the selected `--out`, `--png`, `--markdown-out`, or default `output/` artifact paths. It runs local Python renderer entry points and does not require network access, credential access, persistence, privilege escalation, or destructive file operations.
+| Capability | Boundary |
+|---|---|
+| Files read | Bundled templates, references, examples, `assets/logo.png`, and user-provided Markdown or variables. |
+| Files written | Only selected `--out`, `--png`, `--markdown-out`, or default `output/` artifact paths. |
+| Local commands | Delivery and PDF renderer entry points. |
+| Not required | Network access, credential access, persistence, privilege escalation, destructive file operations, background services, or project-system API calls. |
 
 ## License
 

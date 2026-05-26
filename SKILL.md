@@ -2,7 +2,7 @@
 name: agentic-delivery-skill
 description: >-
   Create CompleteTech LLC delivery execution artifacts for approved agentic development engagements, including kickoff agendas, access checklists, project plans, milestone trackers, status updates, decision logs, risk/issue logs, change request intake, prototype review, evaluation reports, acceptance packets, launch readiness, monitoring, support, handoff, runbooks, quickstarts, closeout, post-launch review, and escalation procedures. Use after proposal/SOW or contract approval when Codex needs to run bounded agentic workflow delivery cleanly.
-version: 1.0.7
+version: 1.0.8
 metadata:
   openclaw:
     skillKey: agentic-delivery-skill
@@ -105,22 +105,26 @@ Choose by the current operational event first.
 
 ## Runtime Permissions
 
-This skill needs local filesystem access only for its documented renderer workflow:
-
-- Reads bundled templates, references, examples, `assets/logo.png`, and user-provided Markdown or variable inputs.
-- Writes only to the user-selected `--out`, `--png`, `--markdown-out`, or default `output/` artifact paths.
-- Runs local Python entry points `scripts/render_delivery.py` and `scripts/render_pdf.py`.
-- Does not require network access, credential access, persistence, privilege escalation, or destructive file operations.
+| Capability | Boundary |
+|---|---|
+| Files read | Bundled templates, references, examples, `assets/logo.png`, and user-provided Markdown or variable inputs. |
+| Files written | Only user-selected `--out`, `--png`, `--markdown-out`, or default `output/` artifact paths. |
+| Local commands | `scripts/render_delivery.py` and `scripts/render_pdf.py`. |
+| Not required | Network access, credential access, persistence, privilege escalation, destructive file operations, background services, or project-system API calls. |
 
 ## Renderer
 
-```bash
-python3 scripts/render_delivery.py --list
-python3 scripts/render_delivery.py --stage status --list
-python3 scripts/render_delivery.py --template kickoff-agenda --var client_name=Acme --var workflow="support triage"
-```
+| Task | Command |
+|---|---|
+| List all delivery artifacts | `python3 scripts/render_delivery.py --list` |
+| List artifacts for a stage | `python3 scripts/render_delivery.py --stage status --list` |
+| Render a kickoff agenda | `python3 scripts/render_delivery.py --template kickoff-agenda --var client_name=Acme --var workflow="support triage"` |
 
-Rendered artifacts are drafts. Replace placeholders with verified project facts before sending or storing them.
+| Output Rule | Requirement |
+|---|---|
+| Draft status | Rendered artifacts remain drafts until verified by the delivery owner. |
+| Placeholders | Replace every placeholder with verified project facts before sending, storing, or using as evidence. |
+| Approval-sensitive outputs | Do not treat acceptance, launch, production, or handoff language as final without recorded approval. |
 
 ## Rendering to a Branded PDF
 
