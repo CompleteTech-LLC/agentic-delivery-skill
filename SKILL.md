@@ -2,7 +2,7 @@
 name: agentic-delivery-skill
 description: >-
   Create CompleteTech LLC delivery execution artifacts for approved agentic development engagements, including kickoff agendas, access checklists, project plans, milestone trackers, status updates, decision logs, risk/issue logs, change request intake, prototype review, evaluation reports, acceptance packets, launch readiness, monitoring, support, handoff, runbooks, quickstarts, closeout, post-launch review, and escalation procedures. Use after proposal/SOW or contract approval when Codex needs to run bounded agentic workflow delivery cleanly.
-version: 1.0.8
+version: 1.0.9
 metadata:
   openclaw:
     skillKey: agentic-delivery-skill
@@ -128,25 +128,36 @@ Choose by the current operational event first.
 
 ## Rendering to a Branded PDF
 
-Artifacts from this skill are delivered as branded CompleteTech LLC **PDF** documents. The renderer can emit PDF, Markdown, and optional PNG preview in one local command:
+| Render Goal | Use |
+|---|---|
+| Primary artifact | Branded CompleteTech LLC delivery PDF. |
+| Optional outputs | Markdown source and PNG preview from the same local command. |
+| Delivery boundary | PDF output is still a delivery draft until approval evidence is recorded. |
+
+One-command delivery artifact render:
 
 ```bash
 pip install -r requirements.txt
 python3 scripts/render_delivery.py --template launch-readiness-checklist \
   --out artifact.pdf --png artifact.png \
+  --markdown-out artifact.md \
   --title "Launch Readiness Checklist" --doc-type "DELIVERY ARTIFACT" \
-  --subtitle "Northwind Trading Co. — Support Email Triage Agent (Pilot)" --meta "DOCUMENT NO.=DEL-2026-0233" --meta "DATE=2026-06-12" \
+  --subtitle "Northwind Trading Co. - Support Email Triage Agent (Pilot)" \
+  --meta "DOCUMENT NO.=DEL-2026-0233" --meta "DATE=2026-06-12" \
   --var client_name="Client Name" --var workflow="support triage"
 ```
 
-| Output Need | Use |
+| Output Option | Flag |
 |---|---|
 | Branded PDF | `--out artifact.pdf` |
 | PNG preview | `--png artifact.png` |
 | Markdown source | `--markdown-out artifact.md` |
 | Markdown only | `--no-pdf` |
 | No cover page | `--no-cover` |
-| Existing delivery Markdown to PDF | `python3 scripts/render_pdf.py --markdown artifact.md --out artifact.pdf --logo assets/logo.png --title "Launch Readiness Checklist" --doc-type "DELIVERY ARTIFACT"` |
+
+| Existing Markdown Render | Command |
+|---|---|
+| Convert delivery Markdown to PDF | `python3 scripts/render_pdf.py --markdown artifact.md --out artifact.pdf --logo assets/logo.png --title "Launch Readiness Checklist" --doc-type "DELIVERY ARTIFACT"` |
 
 | Rendering Support | Details |
 |---|---|

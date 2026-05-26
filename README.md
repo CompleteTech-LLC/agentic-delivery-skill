@@ -13,7 +13,7 @@ Part of the CompleteTech LLC agentic services skill library. This skill supports
 ## OpenClaw / ClawHub Metadata
 
 - Skill key: `agentic-delivery-skill`
-- Version-ready metadata: `1.0.8`
+- Version-ready metadata: `1.0.9`
 - Homepage: https://github.com/CompleteTech-LLC/agentic-delivery-skill
 - README: https://github.com/CompleteTech-LLC/agentic-delivery-skill#readme
 - Runtime binaries: `python3`
