@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "family": "completetech-skills",
+  "repository": "CompleteTech-LLC/agentic-delivery-skill",
+  "skill_name": "agentic-delivery-skill",
+  "kind": "catalog-renderer",
+  "entrypoints": ["scripts/render_delivery.py", "scripts/render_pdf.py"],
+  "example_inputs": ["assets/examples/example.md"],
+  "network_mode": "local",
+  "private": false
+}
